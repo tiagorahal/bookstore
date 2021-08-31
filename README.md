@@ -4,7 +4,7 @@
 
 > Bookstore is a simple React-Redux app that allows you to store information about the books that you have read and save your progress!
 
-![screenshot](./app_screenshot.png)
+![screenshot](./screenshot.png)
 
 ## Built With
 
