@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BookInfo from './bookInfo';
-import BookProgress from './bookProgress';
-import BookChapter from './bookChapter';
+import BookInfo from './Bookinfo';
+import BookProgress from './Bookprogress';
+import BookChapter from './Bookchapter';
 
 const Book = ({ info }) => (
   <div className="book">
