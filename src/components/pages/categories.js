@@ -1,4 +1,4 @@
-import categoryList from '../../lists/categoryList';
+import categoryList from '../../lists/categorylist';
 
 const allCategories = categoryList.map((cat) => <h3 key={cat.id}>{cat.category}</h3>);
 
