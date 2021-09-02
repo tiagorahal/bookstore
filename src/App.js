@@ -3,13 +3,17 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+
+import { Provider } from 'react-redux';
+import store from './redux/configureStore';
+
 import Navbar from './components/navbar';
 
 import Books from './components/pages/books';
 import Categories from './components/pages/categories';
 
 const App = () => (
-  <>
+  <Provider store={store}>
     <Router>
       <Navbar />
       <Switch>
@@ -19,10 +23,9 @@ const App = () => (
         <Route exact path="/">
           <Books />
         </Route>
-
       </Switch>
     </Router>
-  </>
+  </Provider>
 );
 
 export default App;
