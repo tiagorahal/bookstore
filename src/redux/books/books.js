@@ -1,36 +1,35 @@
-// // Actions
-// const ADD_BOOK = 'bookStore/books/ADD_BOOK';
-// const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
+// Actions
 
-// // Reducer
-// export default function reducer(state = [], action = {}) {
+const ADD_BOOK = 'bookStore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
-//   switch (action.type) {
+// Initial state
 
-//     case ADD_BOOK:
-//       return [ ...state, action.payload];
+const initialState = [];
 
-//     case REMOVE_BOOK:
-//       return state.filter(book => book.id !== id);
+// Action Creators
 
-//     default:
-//       return state;
-//   }
-// }
+export const addBook = (payload) => ({
+  type: ADD_BOOK,
+  payload,
+});
 
-// // Action Creators
-// export const addBook = payload => ({
-//   type: ADD_BOOK,
-//   payload
-// })
+export const removeBook = (payload) => ({
+  type: REMOVE_BOOK,
+  payload,
+});
 
-// export const addBook = payload => ({
-//   type: REMOVE_BOOK,
-//   payload
-// })
+// Reducer
 
-// // side effects, only as applicable
-// // e.g. thunks, epics, etc
-// export function getBook () {
-//   return dispatch => get('/book').then(book => dispatch(updateBook(book)))
-// }
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_BOOK:
+      return [...state, action.payload];
+    case REMOVE_BOOK:
+      return state.filter((book) => book.id !== action.payload.id);
+    default:
+      return state;
+  }
+};
+
+export default reducer;

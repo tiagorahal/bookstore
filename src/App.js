@@ -3,26 +3,28 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import Navbar from './components/navbar';
-
-import Books from './components/pages/books';
-import Categories from './components/pages/categories';
+import { Provider } from 'react-redux';
+import Header from './components/header';
+import BookStore from './components/bookstore';
+import BookNew from './components/booknew';
+import Categories from './components/categories';
+import store from './redux/configurestore';
 
 const App = () => (
-  <>
+  <Provider store={store}>
     <Router>
-      <Navbar />
+      <Header />
       <Switch>
+        <Route exact path="/">
+          <BookStore />
+          <BookNew />
+        </Route>
         <Route path="/categories">
           <Categories />
         </Route>
-        <Route exact path="/">
-          <Books />
-        </Route>
-
       </Switch>
     </Router>
-  </>
+  </Provider>
 );
 
 export default App;
