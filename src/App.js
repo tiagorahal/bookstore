@@ -3,24 +3,23 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+
 import { Provider } from 'react-redux';
-import Header from './components/header';
-import BookStore from './components/bookstore';
-import BookNew from './components/booknew';
-import Categories from './components/categories';
 import store from './redux/configurestore';
+import Navbar from './components/navbar';
+import Books from './components/pages/books';
+import Categories from './components/pages/categories';
 
 const App = () => (
   <Provider store={store}>
     <Router>
-      <Header />
+      <Navbar />
       <Switch>
-        <Route exact path="/">
-          <BookStore />
-          <BookNew />
-        </Route>
         <Route path="/categories">
           <Categories />
+        </Route>
+        <Route exact path="/">
+          <Books />
         </Route>
       </Switch>
     </Router>
